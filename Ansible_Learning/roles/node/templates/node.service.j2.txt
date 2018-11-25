@@ -1,0 +1,14 @@
+[Unit]
+Description=Rocket.Chat Server
+
+[Service]
+Type=simple
+Restart=always
+ExecStart={{ appdir }}/server.js
+User=nobody
+Group=nobody
+Environment=PATH=/user/bin:/user/local/bin
+WorkingDirectory={{ appdir }}
+
+[Install]
+WantedBy=multi-user.target

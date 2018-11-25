@@ -1,0 +1,4 @@
+# file: roles/mongodb/vars/main.yml
+---
+#
+# foo: bar

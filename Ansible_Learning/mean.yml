@@ -1,0 +1,13 @@
+---
+- hosts: db
+  become: true
+  roles: 
+    - mongodb
+- hosts: node
+  become: true
+  roles: 
+    - node
+-hosts: web
+  become: true
+  roles: 
+    - nginx

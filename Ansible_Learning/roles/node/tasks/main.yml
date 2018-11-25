@@ -1,0 +1,36 @@
+# file: roles/node/tasks/main.yml
+---
+- name: Install the EPEL repo
+  yum: name=epel-release state=present
+- name: Installl NodeJS
+  yum: name=nodejs state=present
+- name: Create application dir
+  file:
+    path: "{{ appdir }}"
+    state: directory
+- name: Upload the server.js file
+  template: 
+    src: server.js.j2
+    destination: "{{ appdir }}/server.js"
+- name: Upload the application directory and package.json file
+  copy: 
+    src: "{{ item }}"
+    dest: "{{ appdir }}"
+  with_items:
+    - api
+    - package.json
+-name: Run npm against package.json
+  npm:
+    path: "{{ appdir }}"
+- name: Make server.js executable
+  file:
+    path: "{{ appdir }}/server.js"
+    mode: 0755
+- name: Install NodeJS service
+  template: 
+    src: node.service.j2
+    dest: /etc/systemd/system/node.service
+-name: Start and enable NodeJS
+  service:
+    name: started
+    enabled: true
