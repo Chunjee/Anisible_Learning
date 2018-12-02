@@ -1,0 +1,3 @@
+Share file between vagrant machine - Create a moderate size file named "Donotshare" and share it between two vagrant machines., Install and connect to sqlite database from a virtual machine. Create a Database name "newdatabage" and create 4 tables in it., Set up a nodejs test vm with virtual box windows. Run a simple node app which can be accessed through browser. 
+
+Submit your workspace folder as a zip file after completing any of the above projects
